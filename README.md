@@ -3,7 +3,7 @@
 This is a simple web calculator where you can write an expression and get the result.
 This is for educational purposes so, you can do whathever you want with this code.
 
-### Prerequisites & Installing
+## Prerequisites & Installing
 This was made with Visual Studio 2017 using ASP.NET Core MVC, .NET Standard, C# and Windows.
 
 If you want to inspect the code you can use any editor or code editor of your choice.
@@ -31,12 +31,12 @@ Running with a .NET Core CLI:
 Running with Visual Studio:
 1. Just click on Play Button.
 
-### Some implementation details
-#### Front-end:
+## Some implementation details
+### Front-end:
 * I adapted [this css template](https://fribly.com/2015/03/14/pure-css3-blackboardchalkboard-contact-form/) to make the front-end.
 * I used a few lines in JavaScript and JQuery for functionality.
 
-#### Back-end:
+### Back-end:
 * It has two projects:
   * The UI project. This is the main ASP.NET Core MVC Web App project.
   * The Business project. This project solves the entered expression. It's a .NET Standard Class Library.

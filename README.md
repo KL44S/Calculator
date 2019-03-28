@@ -49,8 +49,18 @@ First of all, this is a simple app made in a short period of time. So, its funct
 The functionality is limited to the basic arithmetic operations. You can chain several operations at the same time. But you have write the parentheses if you want yo resolve some operation first.
 
 Let's see some examples:
-* If you enter ***25 + 65 + 78 * 4*** the result will be ***672***.
-* If you enter ***25 + 65 + (78 * 4)*** the result will be ***402***.
+* If you enter ***4 * 5 + 5*** the result will be ***25***.
+* If you enter ***4 * (5 + 5)*** the result will be ***40***.
+
+It supports negative numbers and you can enter them as you wish.
+Some examples:
+* ***-50 + (-2 * -4) - -7 = -35***
+* ***5 / (-5) = -1***
+
+One of the limitations is that the calculator does not understand "math terms". It just understand operations, which have an operator and two operands.
+So:
+* If you enter ***44 + 10 - 5 * 5*** the result will be ***245***      ---> *incorrect*
+* But if you enter ***44 + 10 - (5 * 5)*** the result will be ***29*** ---> *correct*
 
 White spaces make no difference.
 

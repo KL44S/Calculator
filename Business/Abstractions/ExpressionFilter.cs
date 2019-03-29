@@ -6,9 +6,21 @@ namespace Business.Abstractions
 {
     public abstract class ExpressionFilter : IExpressionFilter
     {
+        //Composite pattern
+
+        #region Properties
+
         public IExpressionFilter NextExpressionFilter { get; set; }
 
+        #endregion
+
+        #region Protected methods
+
         protected abstract string DoFilterExpression(string expression);
+
+        #endregion
+
+        #region Public methods
 
         public string FilterExpression(string expression)
         {
@@ -21,5 +33,7 @@ namespace Business.Abstractions
 
             return expression;
         }
+
+        #endregion
     }
 }

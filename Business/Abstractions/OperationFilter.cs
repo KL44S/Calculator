@@ -8,11 +8,18 @@ namespace Business.Abstractions
 {
     public abstract class OperationFilter : ExpressionFilter
     {
+        #region Attributes
+
         protected static int _notFoundIndex = -1;
 
         protected string _operationSymbol;
         protected IOperandFounder _operandFounder;
 
+        #endregion
+
+        #region Private methods
+
+        //This filters the string replacing a single operation with its result.
         private string FilterSingleExpression(string expression, int index)
         {
             double firstOperand = this._operandFounder.GetFirstOperandFromOperationIndex(expression, index);
@@ -33,6 +40,10 @@ namespace Business.Abstractions
             return stringBuilder.ToString();
         }
 
+        #endregion
+
+        #region Protected methods
+
         protected abstract double GetOperationResult(double firstOperand, double secondOperand);
 
         protected OperationFilter(IOperandFounder operandFounder, string operationSymbol)
@@ -48,6 +59,7 @@ namespace Business.Abstractions
             return index;
         }
 
+        //This filters every single operation found
         protected override string DoFilterExpression(string expression)
         {
             Boolean operationFound = false;
@@ -66,5 +78,7 @@ namespace Business.Abstractions
 
             return expression;
         }
+
+        #endregion
     }
 }

@@ -7,7 +7,13 @@ namespace Business.Implementations
 {
     public class MultiplicationFilter : OperationFilter
     {
+        #region Public methods
+
         public MultiplicationFilter(IOperandFounder operandFounder) : base(operandFounder, "*") { }
+
+        #endregion
+
+        #region Protected methods
 
         protected override double GetOperationResult(double firstOperand, double secondOperand)
         {
@@ -15,5 +21,7 @@ namespace Business.Implementations
 
             return result;
         }
+
+        #endregion
     }
 }

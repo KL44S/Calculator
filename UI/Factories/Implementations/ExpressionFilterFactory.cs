@@ -10,7 +10,13 @@ namespace UI.Factories.Implementations
 {
     public class ExpressionFilterFactory : IExpressionFilterFactory
     {
+        #region Attributes
+
         private IOperandFounderFactory _operandFounderFactory;
+
+        #endregion
+
+        #region Public methods
 
         public ExpressionFilterFactory(IOperandFounderFactory operandFounderFactory)
         {
@@ -34,5 +40,7 @@ namespace UI.Factories.Implementations
 
             return multiplicationFilter;
         }
+
+        #endregion
     }
 }

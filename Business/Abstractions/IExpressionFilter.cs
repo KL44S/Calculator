@@ -6,6 +6,8 @@ namespace Business.Abstractions
 {
     public interface IExpressionFilter
     {
+        /// <summary>Filters the expression replacing subexpressions if is it necessary.
+        /// </summary>
         String FilterExpression(String expression);
     }
 }

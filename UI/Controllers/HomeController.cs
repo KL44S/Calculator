@@ -13,7 +13,13 @@ namespace UI.Controllers
 {
     public class HomeController : Controller
     {
+        #region Attributes
+
         private ICalculator _calculator;
+
+        #endregion
+
+        #region Public methods
 
         public HomeController(ICalculatorFactory calculatorFactory)
         {
@@ -51,9 +57,9 @@ namespace UI.Controllers
             catch(Exception)
             {
                 return new JsonResult(new { StatusCode = StatusCodes.Status500InternalServerError});
-            }
-
-            
+            }         
         }
+
+        #endregion
     }
 }

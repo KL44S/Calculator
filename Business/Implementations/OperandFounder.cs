@@ -10,6 +10,8 @@ namespace Business.Implementations
 {
     public class OperandFounder : IOperandFounder
     {
+        #region Attributes
+
         private static char _minusSymbol = '-';
         private static IList<char> _validNumberChars = new List<char>()
         {
@@ -26,6 +28,10 @@ namespace Business.Implementations
             '.'
         };
 
+        #endregion
+
+        #region Private attributes
+
         private double GetNumber(char[] splittedNumber)
         {
             string numberAsText = new string(splittedNumber);
@@ -34,6 +40,10 @@ namespace Business.Implementations
             return number;
         }
 
+        #endregion
+
+        #region Public attributes
+
         public double GetFirstOperandFromOperationIndex(string expression, int index)
         {
             Boolean isEndOfNumber = false;
@@ -41,7 +51,8 @@ namespace Business.Implementations
 
             index--;
 
-            while(index >= 0 && !isEndOfNumber)
+            //Iterates the string backwards until find something that is not a number.
+            while (index >= 0 && !isEndOfNumber)
             {
                 char currentChar = expression[index];
 
@@ -52,6 +63,7 @@ namespace Business.Implementations
                 }
                 else
                 {
+                    //When I found something that is not a number I need to check the minus symbol because it can be a negative number
                     if (currentChar.Equals(_minusSymbol))
                     {
                         index--;
@@ -89,6 +101,7 @@ namespace Business.Implementations
             index++;
             int startIndex = index;
 
+            //Iterates the string forward until find something that is not a number.
             while (index < expression.Length && !isEndOfNumber)
             {
                 char currentChar = expression[index];
@@ -100,6 +113,7 @@ namespace Business.Implementations
                 }
                 else
                 {
+                    //It can be the minus symbol of a negative number
                     if (startIndex.Equals(index) && currentChar.Equals(_minusSymbol))
                     {
                         parsedNumber.Add(currentChar);
@@ -117,5 +131,7 @@ namespace Business.Implementations
 
             return firstOperand;
         }
+
+        #endregion
     }
 }

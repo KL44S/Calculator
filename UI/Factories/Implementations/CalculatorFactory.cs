@@ -10,7 +10,13 @@ namespace UI.Factories.Implementations
 {
     public class CalculatorFactory : ICalculatorFactory
     {
+        #region Attributes
+
         private IExpressionFilterFactory _expressionFilterFactory;
+
+        #endregion
+
+        #region Public methods
 
         public CalculatorFactory(IExpressionFilterFactory expressionFilterFactory)
         {
@@ -25,5 +31,8 @@ namespace UI.Factories.Implementations
 
             return calculator;
         }
+
+        #endregion
+
     }
 }

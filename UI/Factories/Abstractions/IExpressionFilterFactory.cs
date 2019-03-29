@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UI.Factories.Abstractions
 {
-    public interface IOperationSolverFactory : IFactory<IOperationSolver>
+    public interface IExpressionFilterFactory : IFactory<IExpressionFilter>
     {
     }
 }

@@ -5,11 +5,11 @@ using System.Text;
 
 namespace Business.Implementations
 {
-    public class DivisionSolver : OperationSolver
+    public class DivisionFilter : OperationFilter
     {
-        public DivisionSolver() : base("/") { }
+        public DivisionFilter(IOperandFounder operandFounder) : base(operandFounder, "/") { }
 
-        protected override double DoResolve(double firstOperand, double secondOperand)
+        protected override double GetOperationResult(double firstOperand, double secondOperand)
         {
             double result = firstOperand / secondOperand;
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UI.Factories.Abstractions
 {
-    public interface ISimpleExpressionCalculatorFactory : IFactory<ISimpleExpressionCalculator>
+    public interface IOperandFounderFactory : IFactory<IOperandFounder>
     {
     }
 }

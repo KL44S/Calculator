@@ -1,6 +1,8 @@
 ﻿using Business.Abstractions;
+using Business.Utils;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -14,7 +16,7 @@ namespace Business.Implementations
         private static String _closeBracketSymbol = ")";
         private static int _indexNotFound = -1;
 
-        private ISimpleExpressionCalculator _simpleExpressionCalculator;
+        private IExpressionFilter _expressionFilter;
 
         #endregion
 
@@ -34,9 +36,9 @@ namespace Business.Implementations
 
         #region Public methods
 
-        public Calculator(ISimpleExpressionCalculator simpleExpressionCalculator)
+        public Calculator(IExpressionFilter expressionFilter)
         {
-            this._simpleExpressionCalculator = simpleExpressionCalculator;
+            this._expressionFilter = expressionFilter;
         }
 
         public double Evaluate(string expression)
@@ -61,15 +63,16 @@ namespace Business.Implementations
                     String bracketExpression = expression.Substring(firstIndex, subExpressionLength);
                     String noBracketsExpression = this.RemoveBrackets(bracketExpression);
 
-                    double subExpressionResult = this._simpleExpressionCalculator.EvaluateSimpleExpression(noBracketsExpression);
+                    string subExpressionResult = this._expressionFilter.FilterExpression(noBracketsExpression);
 
                     //Replacing the expression with brackts by its result
-                    expression = expression.Replace(bracketExpression, subExpressionResult.ToString());
+                    expression = expression.Replace(bracketExpression, subExpressionResult);
                 }
             } while (bracketExpressionFound);
 
             //Finally, I evaluate the final expression. Which is simple (no brackets)
-            double expressionResult = this._simpleExpressionCalculator.EvaluateSimpleExpression(expression);
+            string expressionResultAsText = this._expressionFilter.FilterExpression(expression);
+            double expressionResult = double.Parse(expressionResultAsText, CultureInfo.GetCultureInfo(Constants.DefaultCulture));
 
             return expressionResult;
         }

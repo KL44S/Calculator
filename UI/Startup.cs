@@ -37,8 +37,8 @@ namespace UI
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             //Dependency injection
-            services.AddScoped<IOperationSolverFactory, OperationSolverFactory>();
-            services.AddScoped<ISimpleExpressionCalculatorFactory, SimpleExpressionCalculatorFactory>();
+            services.AddScoped<IOperandFounderFactory, OperandFounderFactory>();
+            services.AddScoped<IExpressionFilterFactory, ExpressionFilterFactory>();
             services.AddScoped<ICalculatorFactory, CalculatorFactory>();
         }
 

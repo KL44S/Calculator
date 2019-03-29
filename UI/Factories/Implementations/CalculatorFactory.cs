@@ -10,19 +10,18 @@ namespace UI.Factories.Implementations
 {
     public class CalculatorFactory : ICalculatorFactory
     {
-        private ISimpleExpressionCalculatorFactory _simpleExpressionCalculatorFactory;
+        private IExpressionFilterFactory _expressionFilterFactory;
 
-        public CalculatorFactory(ISimpleExpressionCalculatorFactory simpleExpressionCalculatorFactory)
+        public CalculatorFactory(IExpressionFilterFactory expressionFilterFactory)
         {
-            this._simpleExpressionCalculatorFactory = simpleExpressionCalculatorFactory;
+            this._expressionFilterFactory = expressionFilterFactory;
         }
 
         public ICalculator CreateAndGetInstance()
         {
-            ISimpleExpressionCalculator simpleExpressionCalculator = this._simpleExpressionCalculatorFactory
-                                                                        .CreateAndGetInstance();
+            IExpressionFilter expressionFilter = this._expressionFilterFactory.CreateAndGetInstance();
 
-            ICalculator calculator = new Calculator(simpleExpressionCalculator);
+            ICalculator calculator = new Calculator(expressionFilter);
 
             return calculator;
         }

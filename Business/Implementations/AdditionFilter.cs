@@ -5,11 +5,11 @@ using System.Text;
 
 namespace Business.Implementations
 {
-    public class AdditionSolver : OperationSolver
+    public class AdditionFilter : OperationFilter
     {
-        public AdditionSolver() : base("+") { }
+        public AdditionFilter(IOperandFounder operandFounder) : base(operandFounder, "+") { }
 
-        protected override double DoResolve(double firstOperand, double secondOperand)
+        protected override double GetOperationResult(double firstOperand, double secondOperand)
         {
             double result = firstOperand + secondOperand;
 

@@ -1,7 +1,7 @@
 # Calculator
 
 This is a simple web calculator where you can write an expression and get the result.
-This is for educational purposes so, you can do whathever you want with this code.
+This is for educational purposes so, you can do whathever you need with this code.
 
 ## Prerequisites & Installing
 This was made with Visual Studio 2017 using ASP.NET Core MVC, .NET Standard, C# and Windows.
@@ -11,7 +11,7 @@ I recommend one of these:
 * [Visual Studio Code](https://code.visualstudio.com/download)
 * [Visual Studio](https://visualstudio.microsoft.com/vs/community/)
 
-If you chose Visual Studio Code you may want to install this extension:
+If you choose Visual Studio Code you may want to install this extension:
 * [C# for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
 
 To run you'll just need:
@@ -40,13 +40,12 @@ Running with Visual Studio:
 * It has two projects:
   * The UI project. This is the main ASP.NET Core MVC Web App project.
   * The Business project. This project solves the entered expression. It's a .NET Standard Class Library.
-* I used dependeny injection to inject factory objects.
-* I used chain of responsability pattern to resolve a simple math operation.
+* I used dependency injection to inject factory objects.
 
 ## Usage
-First of all, this is a simple app made in a short period of time. So, its functionality is limited and it has a lot of things to improve. If you want to crash the app, you'll definitely achieve it.
+First of all, this is a simple app made in a short period of time. So, its functionality is limited, and it has a lot of things to improve. If you want to crash the app, you'll definitely achieve it.
 
-The functionality is limited to the basic arithmetic operations. You can chain several operations at the same time. But you have write the parentheses if you want yo resolve some operation first.
+The functionality is limited to the basic arithmetic operations (+, -, *, /). You can chain several operations at the same time. But you have to write the parentheses if you want to resolve some operation first.
 
 Let's see some examples:
 * If you enter ***4 * 5 + 5*** the result will be ***25***.
@@ -56,11 +55,6 @@ It supports negative numbers and you can enter them as you wish.
 Some examples:
 * ***-50 + (-2 * -4) - -7 = -35***
 * ***5 / (-5) = -1***
-
-One of the limitations is that the calculator does not understand "math terms". It just understand operations, which have an operator and two operands.
-So:
-* If you enter ***44 + 10 - 5 * 5*** the result will be ***245***      ---> *incorrect*
-* But if you enter ***44 + 10 - (5 * 5)*** the result will be ***29*** ---> *correct*
 
 White spaces make no difference.
 
